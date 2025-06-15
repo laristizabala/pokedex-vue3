@@ -57,7 +57,7 @@ import { capitalizeFirstLetter } from '@/utils/filter'
 
 const pokemonStore = usePokemonStore()
 
-const { selectedPokemon, loading, pokemonList } = storeToRefs(pokemonStore)
+const { selectedPokemon, loading } = storeToRefs(pokemonStore)
 const emit = defineEmits(['closeModal'])
 
 const isClosing = ref(false)
@@ -78,12 +78,7 @@ const closeModal = () => {
 const updateFavorite = (pokemonName) => {
   loading.value = true
   selectedPokemon.value.favorite = !selectedPokemon.value.favorite
-  const pokemonIndex = pokemonList.value?.findIndex((item) => item.name === pokemonName)
-  if (pokemonIndex !== -1) {
-    pokemonList.value[pokemonIndex].favorite = !pokemonList.value[pokemonIndex].favorite
-    pokemonStore.updateFilteredList()
-    pokemonStore.filterPokemonList()
-  }
+  pokemonStore.updateFavorite(pokemonName)
   loading.value = false
 }
 

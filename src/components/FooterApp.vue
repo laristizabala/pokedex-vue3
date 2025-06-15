@@ -24,11 +24,8 @@ import { storeToRefs } from 'pinia'
 const pokemonStore = usePokemonStore()
 const { buttonStatus } = storeToRefs(pokemonStore)
 
-// const activeButton = ref('all')
-
 const changeOption = (optionName) => {
   buttonStatus.value = optionName
-  //   activeButton.value = optionName
   pokemonStore.filterPokemonList()
 }
 </script>
@@ -49,7 +46,6 @@ const changeOption = (optionName) => {
   width: 100%;
 }
 .active-button {
-  // @include main-button;
   width: 24%;
   background-color: $primary-color;
   border-radius: 60px;
@@ -64,13 +60,15 @@ const changeOption = (optionName) => {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 40%;
+  }
   &:hover {
     background-color: $primary-color-hover;
   }
 }
 
 .inactive-button {
-  // @include secondary-button;
   width: 24%;
   background-color: $inactive-color;
   border-radius: 60px;
@@ -85,6 +83,9 @@ const changeOption = (optionName) => {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  @media (max-width: 800px) {
+    width: 40%;
+  }
   &:hover {
     background-color: $text-light-color;
   }

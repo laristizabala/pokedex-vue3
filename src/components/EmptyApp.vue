@@ -53,6 +53,5 @@ const changeView = (viewName) => {
   &:hover {
     background-color: $primary-color-hover;
   }
-  //   @include main-button;
 }
 </style>

@@ -27,7 +27,7 @@ import usePokemonStore from '@/stores/modules/pokemonStore'
 
 const pokemonStore = usePokemonStore()
 
-const { pokemonListFilteredLength, loading } = storeToRefs(pokemonStore)
+const { pokemonListFilteredLength, loading, search } = storeToRefs(pokemonStore)
 
 const showModal = ref(false)
 
@@ -43,6 +43,7 @@ const loadModal = async (pokemonName) => {
 
 onMounted(async () => {
   getPokemonList()
+  search.value = ''
 })
 </script>
 

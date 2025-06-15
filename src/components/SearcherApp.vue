@@ -37,6 +37,9 @@ const searchPokemon = () => {
 .input-wrapper {
   position: relative;
   width: 60%;
+  @media (max-width: 950px) {
+    width: 80%;
+  }
 }
 .input {
   box-sizing: border-box;

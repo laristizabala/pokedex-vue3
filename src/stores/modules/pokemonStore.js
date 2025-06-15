@@ -79,6 +79,14 @@ const usePokemonStore = defineStore('pokemon', {
     updateFilteredList() {
       this.pokemonListFiltered = [...this.pokemonList]
     },
+    updateFavorite(pokemonName) {
+      const pokemonIndex = this.pokemonList?.findIndex((item) => item.name === pokemonName)
+      if (pokemonIndex !== -1) {
+        this.pokemonList[pokemonIndex].favorite = !this.pokemonList[pokemonIndex].favorite
+        this.updateFilteredList()
+        this.filterPokemonList()
+      }
+    },
   },
 })
 

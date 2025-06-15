@@ -25,18 +25,13 @@ import { capitalizeFirstLetter } from '../utils/filter'
 
 const pokemonStore = usePokemonStore()
 
-const { pokemonList, pokemonListFiltered, loading } = storeToRefs(pokemonStore)
+const { pokemonListFiltered, loading } = storeToRefs(pokemonStore)
 
 const emit = defineEmits(['loadModal'])
 
 const updateFavorite = (pokemonName) => {
   loading.value = true
-  const pokemonIndex = pokemonList.value?.findIndex((item) => item.name === pokemonName)
-  if (pokemonIndex !== -1) {
-    pokemonList.value[pokemonIndex].favorite = !pokemonList.value[pokemonIndex].favorite
-    pokemonStore.updateFilteredList()
-    pokemonStore.filterPokemonList()
-  }
+  pokemonStore.updateFavorite(pokemonName)
   loading.value = false
 }
 </script>
@@ -51,8 +46,9 @@ const updateFavorite = (pokemonName) => {
   width: 60%;
   margin-top: 20px;
   margin-bottom: 75px;
-  //   overflow: auto;
-  //   height: 420px;
+  @media (max-width: 950px) {
+    width: 80%;
+  }
 }
 
 .row-pokemon {

@@ -28,7 +28,6 @@ const changeView = (viewName) => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   gap: 60px;
   &__img {
     margin: 15px;
   }
@@ -67,6 +66,5 @@ const changeView = (viewName) => {
   &:hover {
     background-color: $primary-color-hover;
   }
-  //   @include main-button;
 }
 </style>
