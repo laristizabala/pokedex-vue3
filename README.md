@@ -2,7 +2,7 @@
 
 Este proyecto fue desarrollado como parte de la prueba técnica de Frontend Developer, utilizando **Vue 3**. Se ha puesto un énfasis significativo en la aplicación de **buenas prácticas de arquitectura, escalabilidad y mantenibilidad** del código.
 
-## 🚀 Url
+## 🔗 Url
 
 ```bash
 https://pokedex-lal.netlify.app/
