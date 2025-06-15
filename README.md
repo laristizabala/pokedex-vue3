@@ -61,3 +61,20 @@ src/
 ├── views/            # Vistas principales de la aplicación
 └── router/           # Configuración de rutas (en caso de escalar múltiples vistas)
 ```
+
+## 🧱 Decisiones de arquitectura y principios aplicados
+
+- Los componentes fueron diseñados con responsabilidades muy claras y únicas.
+- Se evitó la lógica compleja dentro de los templates para favorecer la legibilidad.
+- Las vistas están compuestas por pequeños componentes reutilizables que cumplen una única función. Cada componente, servicio y store cumple una única función
+- La lógica de consumo de API fue centralizada en la capa de services, evitando repetir solicitudes HTTP en múltiples lugares.
+- Se reutilizó lógica de estado dentro de los stores mediante actions, manteniendo el código limpio y sin duplicación.
+- Esta arquitectura permite agregar nuevas vistas, servicios o features sin afectar el código existente.
+- Se persiste los datos mediante el uso de states y su manejo con storeToRefs
+- La lógica de negocio, la gestión de estado, la comunicación HTTP y la interfaz de usuario están claramente separadas en diferentes capas.
+- Al utilizar un store modularizado, una capa de servicios para la API, y la organización por componentes, el proyecto está preparado para crecer de forma ordenada.
+
+## 📝 Propuestas
+
+- Se sigue lo indicado en los mockups, respetando diseños, si fuera un caso real, me gustaría hablar con el equipo y ver la posibilidad de revisar el flujo entre vistas, revisar el redireccionamiento, que otros atributos se pueden agregar por personaje y si podemos agregar otros recursos visuales que nos ayuden a enriquecer mucho más el proyecto.
+- Implementar manejo centralizado de errores y estados vacíos.
